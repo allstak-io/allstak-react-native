@@ -1,7 +1,7 @@
 {
-  "name": "@allstak/react-native",
+  "name": "@allstak-io/react-native",
   "version": "0.1.1",
-  "description": "AllStak React Native SDK \u2014 ErrorUtils + Hermes rejection tracking + device tags. Depends on @allstak/core. Native Android/iOS crash capture modules in ./native.",
+  "description": "AllStak React Native SDK — ErrorUtils + Hermes rejection tracking + device tags. Depends on @allstak-io/core. Native Android/iOS crash capture modules in ./native.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://allstak.sa",
   "bugs": {
-    "url": "https://github.com/abdualziz-urnt/allstak-react-native/issues"
+    "url": "https://github.com/allstak-io/allstak-react-native/issues"
   },
   "keywords": [
     "allstak",
@@ -35,10 +35,12 @@
     "error-tracking"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --platform browser --external react-native"
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --platform browser --external react-native",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react-native": ">=0.70"
@@ -49,8 +51,8 @@
     }
   },
   "dependencies": {
-    "@allstak/core": "github:allstak-io/allstak-core",
-    "allstak-js": "github:allstak-io/allstak-js"
+    "@allstak-io/core": "github:allstak-io/allstak-core",
+    "@allstak-io/allstak-js": "github:allstak-io/allstak-js"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
