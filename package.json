@@ -1,6 +1,6 @@
 {
-  "name": "@allstak-io/react-native",
-  "version": "0.1.1",
+  "name": "@allstak/react-native",
+  "version": "0.1.3",
   "description": "AllStak React Native SDK — ErrorUtils + Hermes rejection tracking + device tags. Depends on @allstak-io/core. Native Android/iOS crash capture modules in ./native.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -36,7 +36,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --platform browser --external react-native",
@@ -51,8 +51,8 @@
     }
   },
   "dependencies": {
-    "@allstak-io/core": "github:allstak-io/allstak-core",
-    "@allstak-io/allstak-js": "github:allstak-io/allstak-js"
+    "@allstak/core": "^0.1.3",
+    "@allstak/js": "^0.1.3"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
