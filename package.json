@@ -1,7 +1,7 @@
 {
   "name": "@allstak/react-native",
-  "version": "0.1.3",
-  "description": "AllStak React Native SDK — ErrorUtils + Hermes rejection tracking + device tags. Depends on @allstak-io/core. Native Android/iOS crash capture modules in ./native.",
+  "version": "0.1.4",
+  "description": "AllStak React Native SDK — standalone error tracking, breadcrumbs, network capture, and ErrorUtils + Hermes rejection hooks. No browser or Node dependencies. Native Android/iOS crash modules in ./native.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -32,15 +32,17 @@
     "observability",
     "react-native",
     "mobile",
-    "error-tracking"
+    "error-tracking",
+    "apm"
   ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --platform browser --external react-native",
-    "typecheck": "tsc --noEmit"
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --sourcemap --platform neutral --external react-native --external promise/setimmediate/rejection-tracking",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs"
   },
   "peerDependencies": {
     "react-native": ">=0.70"
@@ -49,10 +51,6 @@
     "react-native": {
       "optional": true
     }
-  },
-  "dependencies": {
-    "@allstak/core": "^0.1.3",
-    "@allstak/js": "^0.1.3"
   },
   "devDependencies": {
     "tsup": "^8.0.0",
